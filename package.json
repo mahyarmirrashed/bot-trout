@@ -10,6 +10,8 @@
   "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
-    "@commitlint/config-conventional": "^13.1.0"
+    "@commitlint/config-conventional": "^13.1.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.4.3"
   }
 }
