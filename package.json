@@ -1,0 +1,14 @@
+{
+  "name": "bot-trout",
+  "version": "0.0.0",
+  "description": "Discord bot for fish slapping.",
+  "main": "index.js",
+  "repository": "https://github.com/mahyarmirrashed/bot-trout.git",
+  "author": "Mahyar Mirrashed <mah.mirr@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0"
+  }
+}
