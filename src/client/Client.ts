@@ -79,30 +79,24 @@ export default class Bot extends Client {
     // register slash commands
     new REST({ version: '9' })
       .setToken(process.env.DISCORD_TOKEN as string)
-      .put(
-        Routes.applicationGuildCommands(
-          process.env.CLIENT_ID as string,
-          process.env.GUILD_ID as string,
+      .put(Routes.applicationCommands(process.env.CLIENT_ID as string), {
+        body: [
+          ...this.commands.entries(),
+        ].map<RESTPostAPIApplicationCommandsJSONBody>(
+          ([name, metadata]: [string, CommandMetadata]) =>
+            new SlashCommandBuilder()
+              .setName(name)
+              .setDescription(metadata.description)
+              .setDefaultPermission(true)
+              .addUserOption((option: SlashCommandUserOption) =>
+                option
+                  .setName('target')
+                  .setDescription('Person to target.')
+                  .setRequired(true),
+              )
+              .toJSON(),
         ),
-        {
-          body: [
-            ...this.commands.entries(),
-          ].map<RESTPostAPIApplicationCommandsJSONBody>(
-            ([name, metadata]: [string, CommandMetadata]) =>
-              new SlashCommandBuilder()
-                .setName(name)
-                .setDescription(metadata.description)
-                .setDefaultPermission(true)
-                .addUserOption((option: SlashCommandUserOption) =>
-                  option
-                    .setName('target')
-                    .setDescription('Person to target.')
-                    .setRequired(true),
-                )
-                .toJSON(),
-          ),
-        },
-      )
+      })
       .then(() =>
         this.logger.success(
           'Successfully registered all application commands!',
