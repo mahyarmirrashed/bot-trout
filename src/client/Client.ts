@@ -1,3 +1,4 @@
+import { SlashCommandBuilder } from '@discordjs/builders';
 import { REST } from '@discordjs/rest';
 import { cyan } from 'chalk';
 import consola from 'consola';
@@ -14,14 +15,16 @@ import {
 } from 'discord.js';
 import { glob } from 'glob';
 import { promisify } from 'util';
-import Command from '../interfaces/CommandStorage';
 import Event from '../interfaces/EventStorage';
+import CommandMetadata from '../types/CommandMetadataType';
+import Command from '../types/CommandType';
+import * as commandsFile from '../../data/commands.json';
 
 const globPromise = promisify(glob);
 
 export default class Bot extends Client {
   // readonly members
-  public readonly commands = new Collection<string, Command>();
+  public readonly commands = new Collection<string, CommandMetadata>();
   public readonly events = new Collection<string, Event>();
   public readonly logger = consola;
 
@@ -48,10 +51,15 @@ export default class Bot extends Client {
 
     // log into client
     super.login(process.env.DISCORD_TOKEN as string).catch(this.logger.error);
+
+    // load commands
+    this.commands = new Collection<string, CommandMetadata>();
+    (commandsFile.commands as Command[]).forEach((command: Command) =>
+      this.commands.set(command.name, command.metadata),
+    );
   }
 
   public start(): void {
-    // register events
     // register events
     globPromise(`${__dirname}/../events/**/*{.ts,.js}`)
       .then((events: string[]) => {
@@ -66,45 +74,31 @@ export default class Bot extends Client {
       .catch(this.logger.error);
 
     // register slash commands
-    globPromise(`${__dirname}/../commands/**/*{.ts,.js}`).then(
-      (commands: string[]) =>
-        // once all promises return their json, report to API
-        Promise.all(
-          commands.map(
-            async (
-              commandPath: string,
-            ): Promise<RESTPostAPIApplicationCommandsJSONBody> =>
-              import(commandPath).then(
-                (command: Command): RESTPostAPIApplicationCommandsJSONBody => {
-                  this.logger.info(
-                    `Registering command ${cyan(command.json.name)}...`,
-                  );
-                  this.commands.set(command.json.name, command);
-                  // return slash command's JSON for array construction
-                  return command.json;
-                },
-              ),
-          ),
-        ).then((slashCommands: RESTPostAPIApplicationCommandsJSONBody[]) =>
-          // report slash commands to Discord API
-          new REST({ version: '9' })
-            .setToken(process.env.DISCORD_TOKEN as string)
-            .put(
-              Routes.applicationGuildCommands(
-                process.env.CLIENT_ID as string,
-                process.env.GUILD_ID as string,
-              ),
-              {
-                body: slashCommands,
-              },
-            )
-            .then(() =>
-              this.logger.success(
-                'Successfully registered all application commands!',
-              ),
-            )
-            .catch(this.logger.error),
+    new REST({ version: '9' })
+      .setToken(process.env.DISCORD_TOKEN as string)
+      .put(
+        Routes.applicationGuildCommands(
+          process.env.CLIENT_ID as string,
+          process.env.GUILD_ID as string,
         ),
-    );
+        {
+          body: [
+            ...this.commands.entries(),
+          ].map<RESTPostAPIApplicationCommandsJSONBody>(
+            ([name, metadata]: [string, CommandMetadata]) =>
+              new SlashCommandBuilder()
+                .setName(name)
+                .setDescription(metadata.description)
+                .setDefaultPermission(true)
+                .toJSON(),
+          ),
+        },
+      )
+      .then(() =>
+        this.logger.success(
+          'Successfully registered all application commands!',
+        ),
+      )
+      .catch((e: unknown) => this.logger.error(e));
   }
 }
