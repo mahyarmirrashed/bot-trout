@@ -1,6 +1,6 @@
 {
   "name": "bot-trout",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Discord bot for fish slapping.",
   "main": "index.js",
   "repository": "https://github.com/mahyarmirrashed/bot-trout.git",
