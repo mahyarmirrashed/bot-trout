@@ -5,6 +5,6 @@ services:
     image: mahyarmirrashed/bot-trout
     container_name: trout
     environment:
-      - CLIENT_ID: INSERT_CLIENT_ID_HERE
-      - DISCORD_TOKEN: INSERT_DISCORD_TOKEN_HERE
+      - CLIENT_ID=INSERT_CLIENT_ID_HERE
+      - DISCORD_TOKEN=INSERT_DISCORD_TOKEN_HERE
     restart: unless-stopped
