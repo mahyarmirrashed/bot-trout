@@ -29,6 +29,7 @@ export const handler: Handler<Interaction> = async (
           'here',
           'https://github.com/mahyarmirrashed/bot-kaomoji/issues/new?assignees=&labels=&template=bug_report.md',
         )} thanks!`,
+        ephemeral: true,
       });
     }
   }
