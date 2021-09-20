@@ -62,6 +62,13 @@
         "description": "For someone who has said something that is *far too silly* and needs to stop now.",
         "message": ":stop_sign: DESTINATION... **Right! Stop that!** It's far too silly!"
       }
+    },
+    {
+      "name": "slap",
+      "metadata": {
+        "description": "For someone who did something silly.",
+        "message": ":tropical_fish: SOURCE slaps DESTINATION around a bit with a large trout."
+      }
     }
   ]
 }
