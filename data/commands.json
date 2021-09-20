@@ -1,3 +1,67 @@
 {
-  "commands": []
+  "commands": [
+    {
+      "name": "trout",
+      "metadata": {
+        "description": "For someone who thoroughly deserves a whacking with a wet trout.",
+        "message": ":fish: **Whack DESTINATION!** you've been whacked with a wet trout."
+      }
+    },
+    {
+      "name": "minnow",
+      "metadata": {
+        "description": "Tap someone who deserves it with a slimy minnow.",
+        "message": ":fishing_pole_and_fish: Plip DESTINATION! Get minnowed."
+      }
+    },
+    {
+      "name": "chips",
+      "metadata": {
+        "description": "For someone who has been trouted, but might deserve some thanks at the same time.",
+        "message": ":fries: **Crunch, crunch DESTINATION!** Here is some chips to go with your fish!"
+      }
+    },
+    {
+      "name": "overdone",
+      "metadata": {
+        "description": "For someone who has over-, incorrectly, or self-righteously trouted others.",
+        "message": ":firecracker: **Sizzle DESTINATION!** The trout you used to slap another user has been gutted, roasted over the coals, and served with tartar sauce."
+      }
+    },
+    {
+      "name": "whale",
+      "metadata": {
+        "description": "For someone who made a bigger than trout mistake.",
+        "message": ":whale2: **Smash DESTINATION!** You've just been squished by a whale!"
+      }
+    },
+    {
+      "name": "whalemeat",
+      "metadata": {
+        "description": "For someone who has overused or misused /whale.",
+        "message": ":bento: **Yum! Delicious! Thanks DESTINATION!** Your whale used to squish me has been sliced and served as some Japanese sashimi."
+      }
+    },
+    {
+      "name": "stinkbomb",
+      "metadata": {
+        "description": "For someone who deserves a stink bomb for whatever reason.",
+        "message": ":bomb: Pee-ew DESTINATION! You've just been stink bombed!"
+      }
+    },
+    {
+      "name": "deactivate",
+      "metadata": {
+        "description": "For someone who stinkbombed you for no reason.",
+        "message": ":satellite_orbital: **Kaboom DESTINATION!** The stink bomb you used to make another user smell has been taken to a remote place and blown up with explosives."
+      }
+    },
+    {
+      "name": "colonel",
+      "metadata": {
+        "description": "For someone who has said something that is *far too silly* and needs to stop now.",
+        "message": ":stop_sign: DESTINATION... **Right! Stop that!** It's far too silly!"
+      }
+    }
+  ]
 }

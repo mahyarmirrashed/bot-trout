@@ -1,4 +1,7 @@
-import { SlashCommandBuilder } from '@discordjs/builders';
+import {
+  SlashCommandBuilder,
+  SlashCommandUserOption,
+} from '@discordjs/builders';
 import { REST } from '@discordjs/rest';
 import { cyan } from 'chalk';
 import consola from 'consola';
@@ -90,6 +93,12 @@ export default class Bot extends Client {
                 .setName(name)
                 .setDescription(metadata.description)
                 .setDefaultPermission(true)
+                .addUserOption((option: SlashCommandUserOption) =>
+                  option
+                    .setName('target')
+                    .setDescription('Person to target.')
+                    .setRequired(true),
+                )
                 .toJSON(),
           ),
         },
