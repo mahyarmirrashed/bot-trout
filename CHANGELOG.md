@@ -2,17 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.3](https://github.com/mahyarmirrashed/bot-trout/compare/v0.0.2...v0.0.3) (2021-09-20)
-
-
-### Features
-
-* **commands:** add `/slap` command ([cc302fd](https://github.com/mahyarmirrashed/bot-trout/commit/cc302fd96199722146ed4e62a8f7cf0f2a547589))
+### [0.0.4](https://github.com/mahyarmirrashed/bot-trout/compare/v0.0.3...v0.0.4) (2021-09-20)
 
 
 ### Bug Fixes
 
-* **commands:** change error message as ephermeral ([a900455](https://github.com/mahyarmirrashed/bot-trout/commit/a9004559f800c7cbe43f170f2dc80cd666e7f7d4))
+* **client:** register commands globally ([adf64a2](https://github.com/mahyarmirrashed/bot-trout/commit/adf64a2596203b77c52f39892176a9c2491eda5f))
+
+### [0.0.3](https://github.com/mahyarmirrashed/bot-trout/compare/v0.0.2...v0.0.3) (2021-09-20)
+
+### Features
+
+- **commands:** add `/slap` command ([cc302fd](https://github.com/mahyarmirrashed/bot-trout/commit/cc302fd96199722146ed4e62a8f7cf0f2a547589))
+
+### Bug Fixes
+
+- **commands:** change error message as ephermeral ([a900455](https://github.com/mahyarmirrashed/bot-trout/commit/a9004559f800c7cbe43f170f2dc80cd666e7f7d4))
 
 ### [0.0.2](https://github.com/mahyarmirrashed/bot-trout/compare/v0.0.1...v0.0.2) (2021-09-20)
 
