@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/mahyarmirrashed/bot-trout/compare/v0.0.5...v0.0.6) (2021-09-21)
+
+
+### Features
+
+* **commands:** add `/multitrout` command ([8675c85](https://github.com/mahyarmirrashed/bot-trout/commit/8675c85cfdc493fffd7fcf605b922bc803c2ca1c))
+
 ### [0.0.5](https://github.com/mahyarmirrashed/bot-trout/compare/v0.0.4...v0.0.5) (2021-09-21)
 
 ### [0.0.4](https://github.com/mahyarmirrashed/bot-trout/compare/v0.0.3...v0.0.4) (2021-09-20)
