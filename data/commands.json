@@ -69,6 +69,13 @@
         "description": "For someone who did something silly.",
         "message": ":tropical_fish: SOURCE slaps DESTINATION around a bit with a large trout."
       }
+    },
+    {
+      "name": "multitrout",
+      "metadata": {
+        "description": "For someone who needs more than a single trout but not a whale.",
+        "message": ":fish: :blowfish: :tropical_fish: **Whack, smack, thwack DESTINATION!** You have been whacked with a hover of wet trouts."
+      }
     }
   ]
 }
